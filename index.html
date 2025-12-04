@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>AGROVERDE - Catálogo de Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: #f5f7fa; color: #1f2933; }
+
+    header {
+      background: #0b7a34;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+    .logo span {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav a {
+      margin-left: 16px;
+      color: #e5f7ea;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 40px 24px;
+      background: linear-gradient(135deg, #0b7a34 0%, #1aa347 50%, #f5f7fa 100%);
+      color: #ffffff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hero-text {
+      max-width: 480px;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .hero-text p {
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: #ffffff;
+      color: #0b7a34;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+    .hero-img {
+      flex: 1;
+      min-width: 260px;
+      max-width: 420px;
+      background: #ffffff1a;
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .hero-img-inner {
+      height: 220px;
+      border-radius: 12px;
+      border: 1px dashed #e5f7ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 12px;
+    }
+
+    main {
+      padding: 32px 24px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: #0b4a24;
+    }
+    section p.section-subtitle {
+      font-size: 0.9rem;
+      color: #607183;
+      margin-bottom: 16px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .category-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+    .category-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #0b4a24;
+    }
+    .category-card p {
+      font-size: 0.85rem;
+      color: #607183;
+      margin-bottom: 10px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .product {
+      background: #f9fafb;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+    .product img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-info {
+      padding: 8px;
+    }
+    .product-info h4 {
+      font-size: 0.85rem;
+      margin-bottom: 2px;
+      color: #111827;
+    }
+    .product-info span {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .why-us {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .why-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 14px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .why-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: #0b4a24;
+    }
+    .why-card p {
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    .contact {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 16px;
+      border: 1px solid #e5e7eb;
+      display: grid;
+      gap: 10px;
+    }
+    .contact-row {
+      font-size: 0.9rem;
+    }
+    .contact-row strong {
+      color: #0b4a24;
+    }
+    .contact a {
+      color: #0b7a34;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #0b4a24;
+      color: #e5f7ea;
+      text-align: center;
+      padding: 12px 8px;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 24px 16px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <!-- Cambia el src por la ruta de tu logo real -->
+      <img src="logo-agroverde.png" alt="AGROVERDE Logo" />
+      <span>AGROVERDE</span>
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#por-que">Por qué AGROVERDE</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>Productos agrícolas confiables para productores reales.</h1>
+      <p>
+        AGROVERDE ofrece fertilizantes, semillas y agroquímicos seleccionados para maximizar
+        el rendimiento de tus siembras, con soporte cercano y entrega rápida a tu finca o factoría.
+      </p>
+      <div class="hero-buttons">
+        <a href="#productos" class="btn btn-primary">Ver catálogo de imágenes</a>
+        <a href="#contacto" class="btn btn-outline">Hablar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="hero-img-inner">
+        Aquí puedes colocar una foto grande de tu estantería de productos,<br />
+        sacos de fertilizantes, agroquímicos o tu local de AGROVERDE.
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- Sección Productos -->
+    <section id="productos">
+      <h2>Catálogo de productos</h2>
+      <p class="section-subtitle">
+        Explora algunas imágenes de los productos que ofrecemos a nuestros clientes productores.
+      </p>
+
+      <div class="categories">
+        <!-- Agroquímicos -->
+        <div class="category-card">
+          <h3>Agroquímicos</h3>
+          <p>Fungicidas, insecticidas, herbicidas y soluciones para el manejo de plagas y enfermedades.</p>
+          <div class="product-grid">
+            <!-- Cambia los src por tus fotos reales -->
+            <div class="product">
+              <img src="productos/agroquimico-1.jpg" alt="Agroquímico 1" />
+              <div class="product-info">
+                <h4>Fungicida de contacto</h4>
+                <span>Control preventivo de hongos en arroz.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/agroquimico-2.jpg" alt="Agroquímico 2" />
+              <div class="product-info">
+                <h4>Insecticida sistémico</h4>
+                <span>Protección contra insectos chupadores y masticadores.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/agroquimico-3.jpg" alt="Agroquímico 3" />
+              <div class="product-info">
+                <h4>Herbicida selectivo</h4>
+                <span>Control de malezas en arrozales.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fertilizantes -->
+        <div class="category-card">
+          <h3>Fertilizantes</h3>
+          <p>Formulaciones equilibradas para fortalecer el desarrollo de tus cultivos.</p>
+          <div class="product-grid">
+            <div class="product">
+              <img src="productos/fertilizante-1.jpg" alt="Fertilizante 1" />
+              <div class="product-info">
+                <h4>Urea granulada</h4>
+                <span>Alto contenido de nitrógeno para etapas de crecimiento.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/fertilizante-2.jpg" alt="Fertilizante 2" />
+              <div class="product-info">
+                <h4>15-15-15</h4>
+                <span>Balance NPK para semilleros y etapas iniciales.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/fertilizante-3.jpg" alt="Fertilizante 3" />
+              <div class="product-info">
+                <h4>20-20-20</h4>
+                <span>Fertilizante soluble para aplicaciones foliares.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Semillas -->
+        <div class="category-card">
+          <h3>Semillas</h3>
+          <p>Variedades adaptadas a la zona arrocera y a las condiciones del productor.</p>
+          <div class="product-grid">
+            <div class="product">
+              <img src="productos/semilla-1.jpg" alt="Semilla 70-22" />
+              <div class="product-info">
+                <h4>Variedad 70-22</h4>
+                <span>Buena productividad y adaptación en zonas arroceras.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/semilla-2.jpg" alt="Semilla 2" />
+              <div class="product-info">
+                <h4>Variedad Lucero</h4>
+                <span>Excelente potencial de rendimiento en arroz de riego.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/semilla-3.jpg" alt="Semilla 3" />
+              <div class="product-info">
+                <h4>Otras variedades</h4>
+                <span>Disponibles según temporada y demanda.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accesorios -->
+        <div class="category-card">
+          <h3>Accesorios y equipos</h3>
+          <p>Herramientas y equipos de apoyo para facilitar el manejo en campo.</p>
+          <div class="product-grid">
+            <div class="product">
+              <img src="productos/accesorio-1.jpg" alt="Bomba de mochila" />
+              <div class="product-info">
+                <h4>Bombas de mochila</h4>
+                <span>Equipos para aplicaciones de agroquímicos.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/accesorio-2.jpg" alt="Mangueras" />
+              <div class="product-info">
+                <h4>Mangueras y conexiones</h4>
+                <span>Para riego y manejo de agua.</span>
+              </div>
+            </div>
+            <div class="product">
+              <img src="productos/accesorio-3.jpg" alt="Herramientas" />
+              <div class="product-info">
+                <h4>Herramientas básicas</h4>
+                <span>Uso diario en la finca o factoría.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Por qué AGROVERDE -->
+    <section id="por-que">
+      <h2>¿Por qué AGROVERDE?</h2>
+      <p class="section-subtitle">
+        No solo vendemos productos, acompañamos a los productores en cada etapa de la siembra.
+      </p>
+      <div class="why-us">
+        <div class="why-card">
+          <h3>Productos originales y confiables</h3>
+          <p>
+            Trabajamos con marcas reconocidas y productos debidamente registrados para garantizar
+            eficacia en campo y seguridad para el productor.
+          </p>
+        </div>
+        <div class="why-card">
+          <h3>Enfoque en productores de arroz</h3>
+          <p>
+            Conocemos la realidad de los productores de arroz en la zona y adaptamos nuestras
+            recomendaciones a su realidad técnica y financiera.
+          </p>
+        </div>
+        <div class="why-card">
+          <h3>Atención cercana y flexible</h3>
+          <p>
+            Coordinamos entregas, crédito según evaluación y soporte vía WhatsApp para que el
+            productor nunca se quede solo en la toma de decisiones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p class="section-subtitle">
+        ¿Te interesa alguno de estos productos o necesitas una cotización?
+        Escríbenos y con gusto te atendemos.
+      </p>
+      <div class="contact">
+        <div class="contact-row">
+          <strong>WhatsApp:</strong>
+          <!-- Cambia por tu enlace real de WhatsApp -->
+          <a href="https://wa.me/18090000000" target="_blank">+1 809-000-0000</a>
+        </div>
+        <div class="contact-row">
+          <strong>Correo electrónico:</strong>
+          <a href="mailto:info@agroverde.com">info@agroverde.com</a>
+        </div>
+        <div class="contact-row">
+          <strong>Ubicación:</strong>
+          Villa Riva, Provincia Duarte, República Dominicana.
+        </div>
+        <div class="contact-row">
+          <strong>Horario:</strong>
+          Lunes a sábado, 8:00 a.m. - 6:00 p.m.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> AGROVERDE. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
