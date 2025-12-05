@@ -1,212 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Catálogo de Productos - AGROVERDE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: #f5f5f5; color: #1a1a1a; }
-
-    header {
-      background: #0b7a34;
-      color: #fff;
-      padding: 15px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: bold; }
-    .logo img { height: 45px; }
-
-    nav a {
-      margin-left: 15px;
-      color: #e9ffe9;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover { text-decoration: underline; }
-
-    main {
-      max-width: 1150px;
-      margin: auto;
-      padding: 35px 20px;
-    }
-
-    h1 { text-align: center; margin-bottom: 10px; color: #0b4a24; }
-    .section-subtitle { text-align: center; margin-bottom: 30px; color: #555; }
-
-    h2 { margin-top: 40px; color: #0b4a24; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 15px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      border: 1px solid #d9d9d9;
-      box-shadow: 0 4px 7px rgba(0, 0, 0, 0.12);
-    }
-
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    .back-link {
-      margin-top: 35px;
-      text-align: center;
-    }
-    .back-link a {
-      color: #0b7a34;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .back-link a:hover { text-decoration: underline; }
-
-    footer {
-      background: #0b4a24;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 40px;
-      font-size: 0.85rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo – AGROVERDE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            background: #1c6b2a;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        .item {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #1c6b2a;
+        }
+    </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="agroverdelogo.png" alt="logo">
-      AGROVERDE
-    </div>
-    <nav>
-      <a href="/">Inicio</a>
-      <a href="/catalogo.html">Catálogo</a>
-      <a href="/galeria.html">Galería</a>
-    </nav>
-  </header>
+<header>Catálogo de Productos – AGROVERDE</header>
 
-  <main>
-    <h1>Catálogo de productos</h1>
-    <p class="section-subtitle">Explora algunas de las líneas de productos que ofrecemos a nuestros clientes productores.</p>
+<div class="container">
 
-    <!-- AGROQUÍMICOS -->
-    <h2>Agroquímicos</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="agroquimico1.png" alt="">
-        <h3>Agroquímico 1</h3>
-        <strong>Fungicida de contacto</strong>
-        <p>Control preventivo de hongos en arroz.</p>
-      </div>
-
-      <div class="card">
-        <img src="agroquimico2.png" alt="">
-        <h3>Agroquímico 2</h3>
-        <strong>Insecticida sistémico</strong>
-        <p>Protección contra insectos chupadores y masticadores.</p>
-      </div>
-
-      <div class="card">
-        <img src="agroquimico3.png" alt="">
-        <h3>Agroquímico 3</h3>
-        <strong>Herbicida selectivo</strong>
-        <p>Control de malezas en arrozales.</p>
-      </div>
+    <div class="item">
+        <h2>Agricultor en campo de arroz</h2>
+        <img src="Agricultorencampodearroz.png" alt="">
     </div>
 
-    <!-- FERTILIZANTES -->
-    <h2>Fertilizantes</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="fertilizante1.png" alt="">
-        <h3>Fertilizante 1</h3>
-        <strong>Urea granulada</strong>
-        <p>Alponente nitrógeno para crecimiento.</p>
-      </div>
-
-      <div class="card">
-        <img src="fertilizante2.png" alt="">
-        <h3>Fertilizante 2</h3>
-        <strong>15-15-15</strong>
-        <p>Balance NPK para semilleros y etapas iniciales.</p>
-      </div>
-
-      <div class="card">
-        <img src="fertilizante3.png" alt="">
-        <h3>Fertilizante 3</h3>
-        <strong>20-20-20</strong>
-        <p>Fertilizante soluble para aplicaciones foliares.</p>
-      </div>
+    <div class="item">
+        <h2>Campos de arroz y cosecha</h2>
+        <img src="Camposdearrozycosechafresca.png" alt="">
     </div>
 
-    <!-- SEMILLAS -->
-    <h2>Semillas</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="semilla1.png" alt="">
-        <h3>Semilla 70-22</h3>
-        <strong>Variedad 70-22</strong>
-        <p>Alto rendimiento y excelente adaptación.</p>
-      </div>
-
-      <div class="card">
-        <img src="semilla2.png" alt="">
-        <h3>Semilla Lucero</h3>
-        <strong>Variedad Lucero</strong>
-        <p>Excelente potencial en arroz de riego.</p>
-      </div>
-
-      <div class="card">
-        <img src="semilla3.png" alt="">
-        <h3>Otras variedades</h3>
-        <p>Disponibles según temporada y demanda.</p>
-      </div>
+    <div class="item">
+        <h2>Imagen 1</h2>
+        <img src="1.png" alt="">
     </div>
 
-    <!-- ACCESORIOS -->
-    <h2>Accesorios y equipos</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="bomba_mochila.png" alt="">
-        <h3>Bomba de mochila</h3>
-        <strong>Bombas de mochila</strong>
-        <p>Equipos para aplicaciones de agroquímicos.</p>
-      </div>
-
-      <div class="card">
-        <img src="mangueras.png" alt="">
-        <h3>Mangueras</h3>
-        <strong>Mangueras y conexiones</strong>
-        <p>Para riego y manejo de agua.</p>
-      </div>
-
-      <div class="card">
-        <img src="herramientas.png" alt="">
-        <h3>Herramientas</h3>
-        <strong>Herramientas básicas</strong>
-        <p>Uso diario en la finca o factoría.</p>
-      </div>
+    <div class="item">
+        <h2>Imagen 12</h2>
+        <img src="12.png" alt="">
     </div>
 
-    <div class="back-link">
-      <a href="/">← Volver al inicio</a>
-    </div>
-
-  </main>
-
-  <footer>© 2025 AGROVERDE. Todos los derechos reservados.</footer>
+</div>
 
 </body>
 </html>
